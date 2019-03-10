@@ -1,23 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const logger = require('morgan');
-const routes = require('./routes');
+const nodemon = require('nodemon');
+const path = require('path');
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
-app.use(logger('dev'));
-
-// if in production, serve up React's build folder in the client subfolder
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-
-app.use(routes);
-
-mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/umpiretracker', {useNewUrlParser: true});
-
-app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
+nodemon({
+  execMap: {
+    js: 'node'
+  },
+  script: path.join(__dirname, 'server/server'),
+  ignore: [],
+  watch: process.env.NODE_ENV !== 'production' ? ['server/*'] : false,
+  ext: 'js'
+})
+.on('restart', function() {
+  console.log('Server restarted!');
+})
+.once('exit', function () {
+  console.log('Shutting down server');
+  process.exit();
+});
