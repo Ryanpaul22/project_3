@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 const Header = () => (
   <div align="center">
   
-  <h1 class="container">Umpire Tracker</h1>
+  <h1 className="container">Umpire Tracker</h1>
   <header>
-    <Link to="/">Home</Link>
+  <form method="get" action="/">
+    <button type="submit">Home</button>
+    </form>
 
 
 

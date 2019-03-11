@@ -327,28 +327,35 @@ class Home extends Component {
     
     return (
       <div align="center">
-        <h3>Weclome!</h3>
+        <h3>Hello, (Current User's First Name)!</h3>
 
-        <nav>
-      <Link to="/your-games">View Your Games</Link>
-    </nav>
+        <br></br>
+
+        
+        <form method="get" action="/your-games">
+    <button type="submit">View Your Games</button>
+    </form>
+    
     <br />
 
-    <nav>
-      <Link to="/new-game">Create New Game</Link>
-    </nav>
+    <form method="get" action="/new-game">
+    <button type="submit">Create New Game</button>
+    </form>
     <br />
-    <nav>
-      <Link to="/new-assinger">Create New Assinger</Link>
-    </nav>
+
+    <form method="get" action="/new-assinger">
+    <button type="submit">Create New Assinger</button>
+    </form>
     <br />
-    <nav>
-      <Link to="/new-partner">Create New Partner</Link>
-    </nav>
+
+    <form method="get" action="/new-partner">
+    <button type="submit">Create New Partner</button>
+    </form>
     <br />
 
     <br>
     </br>
+    <br></br>
 
         <button onClick={this.logout}>Logout</button>
       </div>

@@ -7,7 +7,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-// const game = require('./routes/api/game');
+
 
 const config = require('../config/config');
 const webpackConfig = require('../webpack.config');
@@ -26,7 +26,7 @@ mongoose.Promise = global.Promise;
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.json());
 
 // API routes
