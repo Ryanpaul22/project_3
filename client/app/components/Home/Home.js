@@ -23,7 +23,7 @@ class Home extends Component {
       signUpLastName: '',
       signUpEmail: '',
       signUpPassword: '',
-      currentFirstName: 'Current User First Name'
+      currentFirstName: 'Current User First Name!'
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);

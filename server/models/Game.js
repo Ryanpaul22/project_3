@@ -16,18 +16,20 @@ var GameSchema = new Schema ({
     trim: true,
     required: "Enter the start time"
   },
-  assinger: [
+  assinger: 
     {
       type: String,
+      trim: true,
       required: "Assinger Required"
     }
-  ],
-  partner: [
+  ,
+  partner: 
     {
       type: String,
+      trim: true,
       required:  "Partner Required"
     }
-  ],
+  ,
   town: {
     type: String,
     trim: true
@@ -41,11 +43,11 @@ var GameSchema = new Schema ({
     trim: true
   },
   position: {
-    type: Boolean,
-    default: false
+    type: String,
+    trim: true
   },
   fee: {
-    type: Number,
+    type: String,
     trim: true,
     required: "Fee Required",
   },
@@ -54,8 +56,8 @@ var GameSchema = new Schema ({
     trim: true
   },
   paymentStatus: {
-    type: Boolean,
-    default: false,
+    type: String,
+    trim: true,
     required: "Status Required",
   },
   notes: {

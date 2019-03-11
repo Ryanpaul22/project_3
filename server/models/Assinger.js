@@ -17,8 +17,8 @@ var AssingerSchema = new Schema ({
     trim: true,
     required: "Last Name is Required",
   },
-  phoneNumber: {
-    type: Number,
+  phone: {
+    type: String,
     trim: true,
     validate: [
       function(input) {

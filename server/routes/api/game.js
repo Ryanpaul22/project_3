@@ -21,7 +21,16 @@ module.exports = (app) => {
     const newGame = new Game({
       date: req.body.date,
       time: req.body.time,
-      fee: req.body.fee
+      assinger: req.body.assinger,
+      partner: req.body.partner,
+      position: req.body.position,
+      paymentStatus: req.body.paymentStatus,
+      fee: req.body.fee,
+      level: req.body.level,
+      paymentType: req.body.paymentType,
+      town: req.body.town,
+      site: req.body.site,
+      notes: req.body.site
     });
 
     newGame.save().then(game => res.json(game));
