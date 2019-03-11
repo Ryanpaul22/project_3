@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import 'whatwg-fetch';
+
 
 import {
   setInStorage,
@@ -174,7 +176,7 @@ class Home extends Component {
     if (json.success) {
       setInStorage('umpireTracker', { token: json.token });
       this.setState({
-        signInError: json.message,
+        signInError: "",
         isLoading: false,
         signInEmail: '',
         signInPassword: '',
@@ -235,14 +237,14 @@ class Home extends Component {
     } = this.state;
 
     if (isLoading) {
-      return (<div>
+      return (<div align="center">
                 <p>Loading...</p>
               </div>);
     }
 
     if (!token) {
       return (
-        <div>
+        <div align="center">
           <div>
             {
               (signInError) ? (
@@ -250,12 +252,13 @@ class Home extends Component {
                 
               ) : (null)
             }
-              <p>Sign In</p>
+              <h3>Sign In</h3>
               <input 
               type="email" 
               placeholder="Email" 
               value={signInEmail}
               onChange={this.onTextboxChangeSignInEmail} />
+              <br />
               <br />
 
               <input 
@@ -264,6 +267,8 @@ class Home extends Component {
               value={signInPassword}
               onChange={this.onTextboxChangeSignInPassword} />
               <br />
+              <br />
+              <br></br>
 
               <button onClick={this.onSignIn}>Sign In</button>
           </div>
@@ -278,13 +283,14 @@ class Home extends Component {
               ) : (null)
             }
 
-              <p>Sign Up</p>
+              <h3>Sign Up</h3>
 
               <input 
               type="text" 
               placeholder="First Name" 
               value={signUpFirstName}
               onChange={this.onTextboxChangeSignUpFirstName}/>
+              <br />
               <br />
 
               <input 
@@ -293,12 +299,14 @@ class Home extends Component {
               value={signUpLastName}
               onChange={this.onTextboxChangeSignUpLastName}/>
               <br />
+              <br />
 
               <input 
               type="email" 
               placeholder="Email" 
               value={signUpEmail}
               onChange={this.onTextboxChangeSignUpEmail}/>
+              <br />
               <br />
 
               <input 
@@ -307,16 +315,41 @@ class Home extends Component {
               value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}/>
               <br />
+              <br />
+              <br></br>
 
               <button onClick={this.onSignUp}>Sign Up</button>
+              <br></br>
           </div>
         </div>
       )
     }
     
     return (
-      <div>
-        <p>Account</p>
+      <div align="center">
+        <h3>Weclome!</h3>
+
+        <nav>
+      <Link to="/your-games">View Your Games</Link>
+    </nav>
+    <br />
+
+    <nav>
+      <Link to="/new-game">Create New Game</Link>
+    </nav>
+    <br />
+    <nav>
+      <Link to="/new-assinger">Create New Assinger</Link>
+    </nav>
+    <br />
+    <nav>
+      <Link to="/new-partner">Create New Partner</Link>
+    </nav>
+    <br />
+
+    <br>
+    </br>
+
         <button onClick={this.logout}>Logout</button>
       </div>
     );
