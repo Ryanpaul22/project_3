@@ -145,6 +145,7 @@ module.exports = (app) => {
             message: 'Error: server error'
           })
         }
+        app.set('userId', user._id);
         return res.send({
           success: true,
           message: 'Valid sign in',

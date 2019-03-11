@@ -31,7 +31,10 @@ const UserSchema = new mongoose.Schema({
   signUpDate: {
     type: Date,
     default: Date.now()
-  }
+  },
+  games: [
+    {type: mongoose.Schema.Types.ObjectId, ref: "Game"}
+  ]
 });
 
 UserSchema.methods.generateHash = function(password) {

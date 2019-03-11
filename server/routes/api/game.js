@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Game Model
 const Game = require('../../models/Game')
+const User = require('../../models/User');
 
 
 module.exports = (app) => {
@@ -10,7 +11,9 @@ module.exports = (app) => {
   // @route GET api/games
   // Get All Games
   app.get('/api/games', (req, res) => {
-    Game.find()
+    const userId = app.get('userId');
+    User.findById(userId)
+    .populate('games')
     .sort({ date: -1 })
     .then(games => res.json(games) )
   })
@@ -33,7 +36,11 @@ module.exports = (app) => {
       notes: req.body.site
     });
 
-    newGame.save().then(game => res.json(game));
+    newGame.save().then(game => {
+      const userId = app.get('userId');
+      return User.findByIdAndUpdate(userId, {$push: {games: game._id}}, {new: true})
+    })
+    .then(dbUser => res.json(dbUser));
   });
 
    // @route DELETE api/games
