@@ -11,6 +11,7 @@ import 'whatwg-fetch';
 
 const NewPartner = () => (
   <div align='center'>
+  <br></br>
     <h3>New Partner</h3>
     <input 
               type="text" 

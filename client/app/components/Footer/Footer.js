@@ -1,9 +1,12 @@
 import React from 'react';
 
+
+
 const Footer = () => (
   <footer align="center">
     <hr />
-    <p>Umpire Tracker</p>
+    <p>Footer Placeholder</p>
+    
   </footer>
 );
 

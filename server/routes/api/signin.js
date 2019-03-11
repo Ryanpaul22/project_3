@@ -4,7 +4,7 @@ const UserSession = require('../../models/UserSession');
 
 module.exports = (app) => {
 
-  app.post('/api/account/signup', (req, res, next) => {
+  app.post('/api/account/signup', (req, res) => {
       const { body } = req;
       const {
         firstName,
@@ -86,7 +86,7 @@ module.exports = (app) => {
     });
   });
 
-  app.post('/api/account/signin', (req, res, next) => {
+  app.post('/api/account/signin', (req, res) => {
     const { body } = req;
     const {
       password
@@ -155,7 +155,7 @@ module.exports = (app) => {
 
   });
 
-  app.get('/api/account/verify', (req, res, next) => {
+  app.get('/api/account/verify', (req, res) => {
     // Get the token
     const { query } = req;
     const { token } = query;
@@ -189,7 +189,7 @@ module.exports = (app) => {
 
   });
 
-  app.get('/api/account/logout', (req, res, next) => {
+  app.get('/api/account/logout', (req, res) => {
     // Get the token
     const { query } = req;
     const { token } = query;

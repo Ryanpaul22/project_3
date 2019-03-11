@@ -22,7 +22,8 @@ class Home extends Component {
       signUpFirstName: '',
       signUpLastName: '',
       signUpEmail: '',
-      signUpPassword: ''
+      signUpPassword: '',
+      currentFirstName: 'Current User First Name'
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -233,7 +234,8 @@ class Home extends Component {
       signUpLastName,
       signUpEmail,
       signUpPassword,
-      signUpError
+      signUpError,
+      currentFirstName
     } = this.state;
 
     if (isLoading) {
@@ -327,7 +329,9 @@ class Home extends Component {
     
     return (
       <div align="center">
-        <h3>Hello, (Current User's First Name)!</h3>
+      <br></br>
+      
+        <h3>Hello, {currentFirstName}</h3>
 
         <br></br>
 
@@ -356,6 +360,7 @@ class Home extends Component {
     <br>
     </br>
     <br></br>
+    <br></br>
 
         <button onClick={this.logout}>Logout</button>
       </div>
@@ -364,3 +369,4 @@ class Home extends Component {
 }
 
 export default Home;
+

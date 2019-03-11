@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 
 const NewAssinger = () => (
   <div align='center'>
+  <br></br>
     <h3>New Assinger</h3>
     <input 
               type="text" 
