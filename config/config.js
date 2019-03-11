@@ -1,4 +1,4 @@
 module.exports = {
-  db: 'mongodb://username:password@url:port/db', 
+  db: 'mongodb+srv://ryanpaul22:Socrates2019@ryancluster-oeozb.mongodb.net/test?retryWrites=true', 
   db_dev: 'mongodb://localhost:27017/umpireTracker', 
 };
