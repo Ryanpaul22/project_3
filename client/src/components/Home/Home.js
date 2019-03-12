@@ -23,7 +23,8 @@ class Home extends Component {
       signUpLastName: '',
       signUpEmail: '',
       signUpPassword: '',
-      currentFirstName: 'Current User First Name!'
+      currentUserFirstName: []
+      
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -66,6 +67,8 @@ class Home extends Component {
       });
     }
   }
+
+
 
   onTextboxChangeSignInEmail(event) {
     this.setState({
@@ -154,7 +157,8 @@ class Home extends Component {
     // Grab state
     const {
       signInEmail,
-      signInPassword
+      signInPassword,
+      currentUserFirstName
   } = this.state;
 
   this.setState({
@@ -191,6 +195,7 @@ class Home extends Component {
     }
   });
 
+  
   }
 
   logout() {
@@ -235,7 +240,8 @@ class Home extends Component {
       signUpEmail,
       signUpPassword,
       signUpError,
-      currentFirstName
+      currentUserFirstName
+      
     } = this.state;
 
     if (isLoading) {
@@ -330,9 +336,7 @@ class Home extends Component {
     return (
       <div align="center">
       <br></br>
-      
-        <h3>Hello, {currentFirstName}</h3>
-
+      <h3>Welcome, {currentUserFirstName[0]}</h3>
         <br></br>
 
         
