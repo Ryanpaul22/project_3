@@ -24,8 +24,8 @@ const UserSchema = new mongoose.Schema({
   },
 
   isDeleted: {
-      type: Boolean,
-      default: false
+    type: Boolean,
+    default: false
   },
 
   signUpDate: {
@@ -33,15 +33,15 @@ const UserSchema = new mongoose.Schema({
     default: Date.now()
   },
   games: [
-    {type: mongoose.Schema.Types.ObjectId, ref: "Game"}
+    { type: mongoose.Schema.Types.ObjectId, ref: "Game" }
   ]
 });
 
-UserSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+UserSchema.methods.generateHash = function (password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-UserSchema.methods.validPassword = function(password) {
-   return bcrypt.compareSync(password, this.password); 
+UserSchema.methods.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
 };
 module.exports = mongoose.model('User', UserSchema);

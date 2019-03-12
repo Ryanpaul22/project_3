@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 //define our Game Schema
 //date, time, assinger, partner, town, site, level, position, fee, payment type, payment status, notes
 
-var GameSchema = new Schema ({
-  
+var GameSchema = new Schema({
+
   date: {
     type: String,
     trim: true,
@@ -16,19 +16,19 @@ var GameSchema = new Schema ({
     trim: true,
     required: "Enter the start time"
   },
-  assinger: 
-    {
-      type: String,
-      trim: true,
-      required: "Assinger Required"
-    }
+  assinger:
+  {
+    type: String,
+    trim: true,
+    required: "Assinger Required"
+  }
   ,
-  partner: 
-    {
-      type: String,
-      trim: true,
-      required:  "Partner Required"
-    }
+  partner:
+  {
+    type: String,
+    trim: true,
+    required: "Partner Required"
+  }
   ,
   town: {
     type: String,
@@ -63,6 +63,6 @@ var GameSchema = new Schema ({
   notes: {
     type: String
   }
-  });
+});
 
-  module.exports = Game = mongoose.model('Game', GameSchema);
+module.exports = Game = mongoose.model('Game', GameSchema);

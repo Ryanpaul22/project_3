@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//define our Partner Schema
-//firstName, lastName, phone, email, partner/assinger
+//define our Assinger Schema
+//firstName, lastName, phone #, email
 
-var PartnerSchema = new Schema ({
+var AssingerSchema = new Schema({
 
 
   firstName: {
@@ -19,13 +19,13 @@ var PartnerSchema = new Schema ({
   },
   phone: {
     type: String,
-    validate: {
-      validator: function(v) {
-        return /\d{3}-\d{3}-\d{4}/.test(v);
+    trim: true,
+    validate: [
+      function (input) {
+        return input.length = 10;
       },
-      message: props => `${props.value} is not a valid phone number!`
-    },
-    required: [true, 'Phone number required']
+      "Invalid Phone Number"
+    ]
   },
   email: {
     type: String,
@@ -35,4 +35,4 @@ var PartnerSchema = new Schema ({
   }
 });
 
-module.exports = Partner = mongoose.model('Partner',  PartnerSchema);
+module.exports = Assinger = mongoose.model('Assinger', AssingerSchema);
